@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-<!--        <module>gulimall-order</module>-->
+        <module>gulimall-order</module>
 <!--        <module>gulimall-member</module>-->
 <!--        <module>gulimall-coupon</module>-->
 <!--        <module>gulimall-thrid-party</module>-->
