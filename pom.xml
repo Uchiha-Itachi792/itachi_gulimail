@@ -11,11 +11,11 @@
 
     <modules>
         <module>gulimall-order</module>
-<!--        <module>gulimall-member</module>-->
-<!--        <module>gulimall-coupon</module>-->
-<!--        <module>gulimall-thrid-party</module>-->
+        <module>gulimall-member</module>
+        <module>gulimall-coupon</module>
         <module>gulimall-product</module>
-<!--        <module>gulimall-ware</module>-->
+        <module>gulimall-ware</module>
+<!--        <module>gulimall-thrid-party</module>-->
 <!--        <module>renren-fast</module>-->
 <!--        <module>renren-generator</module>-->
     </modules>
