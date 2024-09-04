@@ -17,8 +17,8 @@
         <module>gulimall-ware</module>
         <module>renren-fast</module>
 <!--        <module>gulimall-thrid-party</module>-->
-<!--        <module>renren-fast</module>-->
-<!--        <module>renren-generator</module>-->
+        <module>renren-generator</module>
+        <module>gulimall-common</module>
     </modules>
 
 </project>
