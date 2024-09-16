@@ -18,5 +18,12 @@ class GulimallProductApplicationTests {
         brandEntity.setName("unit-test");
         brandService.save(brandEntity);
     }
+    @Test
+    void updateTest() {
+        BrandEntity brandEntity = new BrandEntity();
+        brandEntity.setBrandId(1l);
+        brandEntity.setName("update-test");
+        brandService.updateById(brandEntity);
+    }
 
 }
