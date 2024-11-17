@@ -8,6 +8,10 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+      config:
+        shared-configs:
+          - data-id: gulimall-coupon
+            group: DEFAULT_GROUP
   application:
     name: gulimall-coupon #服务注册的时候，当前application必须要有名字
 mybatis-plus:
