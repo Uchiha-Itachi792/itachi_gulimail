@@ -25,8 +25,8 @@ public class FileUtils {
 
         File source = new File(sourcePath);
         File target = new File(targetPath);
-        if (source.renameTo(target)) {
-            log.info("can't move with sourcePath {}", sourcePath);
+        if (!source.renameTo(target)) {
+            log.error("can't move with sourcePath {}", sourcePath);
         }
 
     }

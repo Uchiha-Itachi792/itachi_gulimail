@@ -1,11 +1,17 @@
 package com.atguigu.common.image;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Map;
 
+@Slf4j
 public class ImageUtil {
 
     private static Double RATE = 1.785;
@@ -15,15 +21,15 @@ public class ImageUtil {
         int width = image.getWidth();//图片宽度
         int height = image.getHeight();//图片高度
         if (width > height) {
-            FileUtils.moveFile(file.getPath(), targetPath);
+            FileUtils.moveFile(file.getPath(), targetPath + file.getName());
             return null;
         }
         return image;
     }
 
-    public static ImageModel initModel(ImageModel imageModel, BufferedImage image) {
+    public static ImageModel initModel(ImageModel imageModel, BufferedImage image) throws IOException {
         if (image == null) {
-            return imageModel;
+            return null;
         }
         int width = image.getWidth();//图片宽度
         imageModel.setWidth(width);
@@ -32,7 +38,7 @@ public class ImageUtil {
         imageModel.setHeight(height);
 
         double targetWidth = height * RATE;
-        int pictureNum = (int) targetWidth / width +1;
+        int pictureNum = (int) targetWidth / width + 1;
         int eachWidth = (int) targetWidth / pictureNum;
         imageModel.setTargetWidth(targetWidth);
         imageModel.setPictureNum(pictureNum);
@@ -46,6 +52,9 @@ public class ImageUtil {
     }
 
     public static void combineNewImage(ImageModel imageModel, String targetPath, BufferedImage image) throws IOException {
+        if(imageModel == null) {
+            return;
+        }
         int targetWidth = (int) imageModel.getTargetWidth() + 10;
         BufferedImage imageNew = new BufferedImage(targetWidth, imageModel.getHeight(), BufferedImage.TYPE_INT_RGB);
 
