@@ -16,5 +16,9 @@
         <result property="productCount" column="product_count"/>
     </resultMap>
 
+    <select id="getAll" resultMap="categoryMap">
+        SELECT * FROM  gulimall_pms.pms_category
+    </select>
+
 
 </mapper>
