@@ -1,5 +1,6 @@
 package com.atguigu.gulimall.gulimallproduct.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class CategoryController {
     public R listWithTree() {
         List<CategoryEntity> entities = categoryService.listWithTree();
         //return R.ok().put("data", entities);
-        return R.ok().put("listWithTree", entities);
+        return R.ok().put("data", entities);
     }
 
     /**
@@ -91,8 +92,8 @@ public class CategoryController {
     @RequestMapping("/delete")
     //@RequiresPermissions("gulimallproduct:category:delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
-
+		//categoryService.removeByIds(Arrays.asList(catIds));
+        categoryService.logicDeleteCategory(new ArrayList<>(Arrays.asList(catIds)));
         return R.ok();
     }
 

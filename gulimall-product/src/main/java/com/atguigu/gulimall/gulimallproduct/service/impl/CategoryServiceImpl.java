@@ -38,6 +38,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 
         return new PageUtils(page);
     }
+
     @Override
     public List<CategoryEntity> listWithTree() {
         List<CategoryEntity> allList = categoryDao.getAll();
@@ -64,5 +65,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         }
         childerens.sort(Comparator.comparingInt(item -> (item.getSort() == null ? 0 : item.getSort())));
         return childerens;
+    }
+
+    @Override
+    public void logicDeleteCategory(List<Long> catIds) {
+        for (Long catId : catIds) {
+            categoryDao.logicDeleteCategory(catId);
+        }
     }
 }

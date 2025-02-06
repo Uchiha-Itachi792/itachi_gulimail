@@ -17,4 +17,4 @@ mybatis-plus:
     db-config:
       id-type: auto #数据插入的时候启动自增主键
 server:
-  port: 10000
+  port: 10001

@@ -17,8 +17,26 @@
     </resultMap>
 
     <select id="getAll" resultMap="categoryMap">
-        SELECT * FROM  gulimall_pms.pms_category
+        SELECT
+        cat_id,
+        `name`,
+        parent_cid,
+        cat_level,
+        show_status,
+        sort,
+        icon,
+        product_unit,
+        product_count
+        FROM gulimall_pms.pms_category
+        WHERE show_status = 1;
     </select>
+
+    <update id="logicDeleteCategory">
+        UPDATE gulimall_pms.pms_category
+        SET show_status = 0
+        WHERE
+        cat_id = '${catId}'
+    </update>
 
 
 </mapper>
