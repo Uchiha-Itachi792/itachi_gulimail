@@ -20,5 +20,7 @@ public interface CategoryService extends IService<CategoryEntity> {
 
     List<CategoryEntity> listWithTree();
     void logicDeleteCategory(List<Long> catIds);
+
+    Long[] findCatelogPath(Long catelogId);
 }
 

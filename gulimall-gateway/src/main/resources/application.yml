@@ -8,7 +8,7 @@ spring:
         - id: product_route #/api/gulimallproduct/请求会转发到product服务
           uri: lb://gulimall-product
           predicates:
-            - Path=/api/gulimallproduct/**
+            - Path=/api/product/**
           filters:
             - RewritePath=/api/?(?<segment>.*), /$\{segment}
         - id: admin_route

@@ -28,7 +28,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-08 15:50:01
  */
 @RestController
-@RequestMapping("gulimallproduct/category")
+@RequestMapping("product/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -61,7 +61,7 @@ public class CategoryController {
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("data", category);
     }
 
     /**

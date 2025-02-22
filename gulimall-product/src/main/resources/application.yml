@@ -18,3 +18,8 @@ mybatis-plus:
       id-type: auto #数据插入的时候启动自增主键
 server:
   port: 10001
+
+logging:
+  level:
+     com.atguigu.gulimall.gulimallproduct: debug
+

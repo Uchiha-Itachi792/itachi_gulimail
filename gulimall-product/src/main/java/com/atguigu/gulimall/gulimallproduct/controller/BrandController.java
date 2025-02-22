@@ -16,6 +16,7 @@ import com.atguigu.gulimall.gulimallproduct.service.BrandService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -26,7 +27,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-08 15:50:01
  */
 @RestController
-@RequestMapping("gulimallproduct/brand")
+@RequestMapping("product/brand")
 public class BrandController {
     @Autowired
     private BrandService brandService;
@@ -58,10 +59,8 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("gulimallproduct:brand:save")
-    public R save(@RequestBody BrandEntity brand){
+    public R save(@Valid @RequestBody BrandEntity brand){
 		brandService.save(brand);
-
         return R.ok();
     }
 
