@@ -1,5 +1,6 @@
 package com.atguigu.gulimall.gulimallproduct.service.impl;
 
+import com.atguigu.gulimall.gulimallproduct.service.CategoryBrandRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import com.atguigu.common.utils.Query;
 import com.atguigu.gulimall.gulimallproduct.dao.CategoryDao;
 import com.atguigu.gulimall.gulimallproduct.entity.CategoryEntity;
 import com.atguigu.gulimall.gulimallproduct.service.CategoryService;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("categoryService")
@@ -25,6 +27,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 
     @Autowired
     CategoryDao categoryDao;
+
+    @Autowired
+    CategoryBrandRelationService categoryBrandRelationService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -89,5 +94,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         for (Long catId : catIds) {
             categoryDao.logicDeleteCategory(catId);
         }
+    }
+
+    @Transactional
+    @Override
+    public void updateCascade(CategoryEntity category) {
+        this.updateById(category);
+        categoryBrandRelationService.updateCategory(category.getCatId(),category.getName());
     }
 }
