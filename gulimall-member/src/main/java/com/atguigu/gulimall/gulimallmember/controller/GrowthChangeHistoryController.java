@@ -26,7 +26,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-16 15:34:26
  */
 @RestController
-@RequestMapping("gulimallmember/growthchangehistory")
+@RequestMapping("member/growthchangehistory")
 public class GrowthChangeHistoryController {
     @Autowired
     private GrowthChangeHistoryService growthChangeHistoryService;

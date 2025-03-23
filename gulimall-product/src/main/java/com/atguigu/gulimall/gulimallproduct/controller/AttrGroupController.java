@@ -10,6 +10,7 @@ import com.atguigu.gulimall.gulimallproduct.service.AttrAttrgroupRelationService
 import com.atguigu.gulimall.gulimallproduct.service.AttrService;
 import com.atguigu.gulimall.gulimallproduct.service.CategoryService;
 import com.atguigu.gulimall.gulimallproduct.vo.AttrGroupRelationVo;
+import com.atguigu.gulimall.gulimallproduct.vo.AttrGroupWithAttrsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +44,15 @@ public class AttrGroupController {
     @Autowired
     AttrAttrgroupRelationService attrAttrgroupRelationService;
 
+    ///product/attrgroup/{catelogId}/withattr
+    @GetMapping("/{catelogId}/withattr")
+    public R getAttrGroupWithAttrs(@PathVariable("catelogId")Long catelogId){
+        //1、查出当前分类下的所有属性分组，
+        //2、查出每个属性分组的所有属性
+        List<AttrGroupWithAttrsVo> vos =  attrGroupService.getAttrGroupWithAttrsByCatelogId(catelogId);
+        return R.ok().put("data",vos);
+    }
+
     @GetMapping("/{attrgroupId}/attr/relation")
     public R attrRelation(@PathVariable("attrgroupId") Long attrgroupId){
         List<AttrEntity> entities =  attrService.getRelationAttr(attrgroupId);
@@ -68,12 +78,8 @@ public class AttrGroupController {
      * 列表
      */
     @RequestMapping("/list/{catelogId}")
-    //@RequiresPermissions("gulimallproduct:attrgroup:list")
     public R list(@RequestParam Map<String, Object> params, @PathVariable("catelogId") Long catelogId){
-        //PageUtils page = attrGroupService.queryPage(params);
-
         PageUtils page = attrGroupService.queryPage(params,catelogId);
-
         return R.ok().put("page", page);
     }
 

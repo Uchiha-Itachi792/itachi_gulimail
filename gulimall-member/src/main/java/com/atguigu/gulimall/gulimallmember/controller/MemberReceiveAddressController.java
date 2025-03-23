@@ -26,7 +26,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-16 15:34:26
  */
 @RestController
-@RequestMapping("gulimallmember/memberreceiveaddress")
+@RequestMapping("member/memberreceiveaddress")
 public class MemberReceiveAddressController {
     @Autowired
     private MemberReceiveAddressService memberReceiveAddressService;
