@@ -26,7 +26,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-16 15:01:51
  */
 @RestController
-@RequestMapping("gulimallcoupon/couponspurelation")
+@RequestMapping("coupon/couponspurelation")
 public class CouponSpuRelationController {
     @Autowired
     private CouponSpuRelationService couponSpuRelationService;

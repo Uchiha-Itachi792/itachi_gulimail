@@ -26,7 +26,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-16 15:01:51
  */
 @RestController
-@RequestMapping("gulimallcoupon/homeadv")
+@RequestMapping("coupon/homeadv")
 public class HomeAdvController {
     @Autowired
     private HomeAdvService homeAdvService;

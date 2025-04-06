@@ -4,6 +4,8 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver #mysql 8.0+ should use this driver
     url: jdbc:mysql://localhost:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+  application:
+    name: gulimall-ware
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
@@ -11,3 +13,7 @@ mybatis-plus:
       id-type: auto #数据插入的时候启动自增主键
 server:
   port: 11000
+
+logging:
+  level:
+    com.atguigu.gulimall.gulimallware: debug

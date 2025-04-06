@@ -26,7 +26,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-16 15:01:51
  */
 @RestController
-@RequestMapping("gulimallcoupon/homesubjectspu")
+@RequestMapping("coupon/homesubjectspu")
 public class HomeSubjectSpuController {
     @Autowired
     private HomeSubjectSpuService homeSubjectSpuService;

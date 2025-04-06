@@ -12,6 +12,13 @@ spring:
           filters:
             - RewritePath=/api/thirdparty/?(?<segment>.*), /$\{segment}
 
+        - id: ware_route #/api/member/请求会转发到member服务
+          uri: lb://gulimall-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /$\{segment}
+
         - id: member_route #/api/member/请求会转发到member服务
           uri: lb://gulimall-member
           predicates:

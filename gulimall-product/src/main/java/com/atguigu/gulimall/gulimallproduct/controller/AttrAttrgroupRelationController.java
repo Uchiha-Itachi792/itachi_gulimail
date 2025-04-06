@@ -26,7 +26,7 @@ import com.atguigu.common.utils.R;
  * @date 2024-09-08 15:50:01
  */
 @RestController
-@RequestMapping("gulimallproduct/attrattrgrouprelation")
+@RequestMapping("product/attrattrgrouprelation")
 public class AttrAttrgroupRelationController {
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
