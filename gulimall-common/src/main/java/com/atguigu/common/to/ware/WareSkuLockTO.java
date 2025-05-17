@@ -1,6 +1,6 @@
 package com.atguigu.common.to.ware;
 
-import com.atguigu.common.vo.ware.OrderItemVO;
+
 import lombok.Data;
 
 import java.util.List;
