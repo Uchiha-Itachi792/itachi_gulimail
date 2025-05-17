@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.gulimall.gulimallproduct.entity.AttrEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,5 +35,7 @@ public interface AttrService extends IService<AttrEntity> {
     void deleteRelation(AttrGroupRelationVo[] vos);
 
     PageUtils getNoRelationAttr(Map<String, Object> params, Long attrgroupId);
+
+    List<Long> selectSearchAttrIds(List<Long> attrIds);
 }
 

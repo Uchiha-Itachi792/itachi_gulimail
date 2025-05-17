@@ -17,10 +17,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -83,43 +80,11 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
 
     }
 
-//    @Override
-//    public PageUtils queryBaseAttrPage(Map<String, Object> params, Long catelogId, String type) {
-//        QueryWrapper<AttrEntity> queryWrapper = new QueryWrapper<>();
-//        if (catelogId != 0) {
-//            queryWrapper.eq("catelog_id", catelogId);
-//        }
-//        String key = (String) params.get("key");
-//        if (!StringUtils.isEmpty(key)) {
-//            //attr_id  attr_name
-//            queryWrapper.and((wrapper) -> {
-//                wrapper.eq("attr_id", key).or().like("attr_name", key);
-//            });
-//        }
-//        IPage<AttrEntity> page = this.page(new Query<AttrEntity>().getPage(params), queryWrapper);
-//        PageUtils pageUtils = new PageUtils(page);
-//
-//        List<AttrEntity> records = page.getRecords();
-//        List<AttrRespVo> respVos = records.stream().map((attrEntity) -> {
-//            AttrRespVo attrRespVo = new AttrRespVo();
-//            BeanUtils.copyProperties(attrEntity, attrRespVo);
-//            AttrAttrgroupRelationEntity attrId = relationDao.selectOne(new QueryWrapper<AttrAttrgroupRelationEntity>().eq("attr_id", attrEntity.getAttrId()));
-//            if (attrId != null) {
-//                AttrGroupEntity attrGroup = attrGroupDao.selectById(attrId.getAttrGroupId());
-//                attrRespVo.setGroupName(attrGroup.getAttrGroupName());
-//            }
-//
-//            CategoryEntity categoryEntity = categoryDao.selectById(attrEntity.getCatelogId());
-//            if (categoryEntity != null) {
-//                attrRespVo.setCatelogName(categoryEntity.getName());
-//            }
-//            return attrRespVo;
-//        }).collect(Collectors.toList());
-//
-//        pageUtils.setList(respVos);
-//
-//        return pageUtils;
-//    }
+
+    @Override
+    public List<Long> selectSearchAttrIds(List<Long> attrIds) {
+        return baseMapper.selectSearchAttrIds(attrIds);
+    }
 
     @Override
     public AttrRespVo getAttrInfo(Long attrId) {
@@ -246,6 +211,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
 
         return pageUtils;
     }
+
 
 
     @Override
