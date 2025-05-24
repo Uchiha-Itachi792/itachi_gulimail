@@ -26,7 +26,6 @@ public class ProductSaveServiceImpl implements ProductSaveService {
 
     @Autowired
     RestHighLevelClient restHighLevelClient;
-
     /**
      * 上架商品
      */
@@ -40,10 +39,13 @@ public class ProductSaveServiceImpl implements ProductSaveService {
         for (SkuEsModel skuEsModel : skuEsModels) {
             // 构建批量请求
             IndexRequest indexRequest = new IndexRequest(EsConstant.PRODUCT_INDEX);
+            //设置每条消息的id为SkuId
             indexRequest.id(skuEsModel.getSkuId().toString());
+            //将skuEsModel数据转换为Json数据
             indexRequest.source(JSONObject.toJSONString(skuEsModel), XContentType.JSON);
             bulkRequest.add(indexRequest);
         }
+        //批量插入
         BulkResponse bulk = restHighLevelClient.bulk(bulkRequest, GulimallElasticSearchConfig.COMMON_OPTIONS);
 
         // TODO 批量执行错误，待处理
@@ -51,7 +53,7 @@ public class ProductSaveServiceImpl implements ProductSaveService {
         if (result) {
             List<String> ids = Arrays.stream(bulk.getItems()).filter(BulkItemResponse::isFailed)
                     .map(BulkItemResponse::getId).collect(Collectors.toList());
-            log.error("商品上架错误：{}", ids);
+            log.error("商品上架错误：{} ,cause by {}", ids, bulk.buildFailureMessage());
         }
         return !result;
     }

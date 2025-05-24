@@ -68,7 +68,7 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
             // 查询当前sku总库存量
             Long count = baseMapper.getSkusStock(skuId);
             stock.setSkuId(skuId);
-            stock.setHasStock(count == null ? false : count > 0);
+            stock.setHasStock(count != null && count > 0);
             return stock;
         }).collect(Collectors.toList());
     }

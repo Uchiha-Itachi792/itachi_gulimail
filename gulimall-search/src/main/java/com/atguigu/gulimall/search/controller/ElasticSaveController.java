@@ -6,13 +6,19 @@ import com.atguigu.common.utils.R;
 import com.atguigu.gulimall.search.service.ProductSaveService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.List;
 @Slf4j
+@RequestMapping("search/save")
+@RestController
 public class ElasticSaveController {
+
     @Autowired
     ProductSaveService productSaveService;
 
@@ -33,8 +39,6 @@ public class ElasticSaveController {
         if (result) {
             return R.ok();// 执行成功
         }
-
         return R.error(BizCodeEnum.PRODUCT_UP_EXCEPTION.getCode(), BizCodeEnum.PRODUCT_UP_EXCEPTION.getMsg());
-
     }
 }

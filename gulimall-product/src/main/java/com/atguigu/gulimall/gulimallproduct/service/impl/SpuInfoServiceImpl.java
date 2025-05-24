@@ -290,6 +290,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             SkuEsModel esModel = new SkuEsModel();
             // 封装属性名相同的属性值
             BeanUtils.copyProperties(sku, esModel);
+            esModel.setSkuPrice(sku.getPrice());
             // 封装属性名不相同的属性值 skuPrice, skuImg
             esModel.setSkuPrice(sku.getPrice());
             esModel.setSkuImg(sku.getSkuDefaultImg());
@@ -323,8 +324,5 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             // TODO 7.重复调用，接口幂等性（重试机制）
 
         }
-
-
-
     }
 }
