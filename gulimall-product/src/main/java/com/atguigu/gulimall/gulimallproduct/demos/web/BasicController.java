@@ -52,11 +52,11 @@ public class BasicController {
         return "user will save: name=" + u.getName() + ", age=" + u.getAge();
     }
 
-    // http://127.0.0.1:8080/html
-    @RequestMapping("/html")
-    public String html(){
-        return "index.html";
-    }
+//    // http://127.0.0.1:8080/html
+//    @RequestMapping("/html")
+//    public String html(){
+//        return "index.html";
+//    }
 
     @ModelAttribute
     public void parseUser(@RequestParam(name = "name", defaultValue = "unknown user") String name

@@ -12,6 +12,13 @@ spring:
     name:  gulimall-product
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    cache: false
+#  resources:
+#    static-locations: classpath:/static/
+  redis:
+    host: 127.0.0.1
+    port: 6379
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
@@ -24,4 +31,3 @@ server:
 logging:
   level:
      com.atguigu.gulimall.gulimallproduct: debug
-
