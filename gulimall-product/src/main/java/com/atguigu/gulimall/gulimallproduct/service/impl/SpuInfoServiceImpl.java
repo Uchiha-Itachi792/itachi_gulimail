@@ -2,7 +2,7 @@ package com.atguigu.gulimall.gulimallproduct.service.impl;
 
 import com.alibaba.cloud.commons.lang.StringUtils;
 import com.atguigu.common.constant.ProductConstant;
-import com.atguigu.common.to.SkuReductionTo;
+import com.atguigu.common.to.product.SkuReductionTo;
 import com.atguigu.common.to.SpuBoundTo;
 import com.atguigu.common.to.es.SkuEsModel;
 import com.atguigu.common.to.ware.SkuHasStockTO;
@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

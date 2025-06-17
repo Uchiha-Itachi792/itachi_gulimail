@@ -1,6 +1,6 @@
 package com.atguigu.gulimall.gulimallproduct.feign;
 
-import com.atguigu.common.to.SkuReductionTo;
+import com.atguigu.common.to.product.SkuReductionTo;
 import com.atguigu.common.to.SpuBoundTo;
 import com.atguigu.common.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;

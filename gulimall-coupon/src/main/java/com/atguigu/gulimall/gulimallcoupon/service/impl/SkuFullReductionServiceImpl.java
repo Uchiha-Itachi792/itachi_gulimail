@@ -1,7 +1,7 @@
 package com.atguigu.gulimall.gulimallcoupon.service.impl;
 
 import com.atguigu.common.to.MemberPrice;
-import com.atguigu.common.to.SkuReductionTo;
+import com.atguigu.common.to.product.SkuReductionTo;
 import com.atguigu.gulimall.gulimallcoupon.entity.MemberPriceEntity;
 import com.atguigu.gulimall.gulimallcoupon.entity.SkuLadderEntity;
 import com.atguigu.gulimall.gulimallcoupon.service.MemberPriceService;

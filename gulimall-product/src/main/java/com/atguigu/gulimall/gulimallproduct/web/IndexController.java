@@ -15,11 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Author: wanzenghui
- * @Date: 2021/10/26 22:01
- * 首页页面跳转
- */
 @Controller
 public class IndexController {
 
