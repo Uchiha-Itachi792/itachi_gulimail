@@ -48,6 +48,12 @@ public class R extends HashMap<String, Object> {
         return JSONObject.parseObject(jsonString, type);
     }
 
+    public <T> T getData(String key, TypeReference<T> type) {
+        Object data = get(key);
+        String jsonString = JSONObject.toJSONStringWithDateFormat(data, DateConstant.DATE_FORMAT);
+        return JSONObject.parseObject(jsonString, type);
+    }
+
 
     public static R error() {
         return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");
